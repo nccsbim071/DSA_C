@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int MAX  = 5; 
+#define MAX 5 
 
 void main()
 {
@@ -9,10 +9,31 @@ void main()
     int index = 1;
     int n = 4;
 
-    printf("\n/Current elements in array:");
-    for(int i=0;i<n;i++)
+    if(n==MAX)
     {
-        printf("myArray[%d]=%d",i,myArray[i]);
+        printf("\nNot enough space in array to insert elements.");
+        return;
     }
 
+    printf("\nCurrent elements in array:");
+    for(int i=0;i<n;i++)
+    {
+        printf("\nmyArray[%d]=%d",i,myArray[i]);
+    }
+
+    int j = n; 
+    while (j>index+1)
+    {
+        myArray[j] = myArray[j-1];
+        j--;
+    }
+
+    myArray[index+1] = value; 
+    n++;
+
+    printf("\nElements in array after insertion:");
+    for(int i=0;i<n;i++)
+    {
+        printf("\nmyArray[%d]=%d",i,myArray[i]);
+    }
 }
