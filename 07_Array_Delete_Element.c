@@ -4,7 +4,7 @@
 
 int main()
 {
-    int myArray[MAX] = {1,2,3,4,5};
+    int myArray[MAX] = {1,3,5,7,8};
     int n = 5; 
     int k = 3; 
 
