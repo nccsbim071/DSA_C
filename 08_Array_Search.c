@@ -4,7 +4,7 @@
 
 void main()
 {
-	int myArray[] = {143,2,37,490,51};
+	int myArray[] = {143,78,37,490,51};
 	int i = 0; 
 	int item = 51;	
 	
@@ -24,7 +24,7 @@ void main()
 		}
 	}*/	
 	
-	i = 0;
+	/*i = 0;
 	
 	while(i<MAX)
 	{
@@ -34,7 +34,20 @@ void main()
 		}
 		
 		i++;
-	}
+	}*/
+	
+	i=0;
+	
+	do
+	{
+		if(myArray[i]==item)
+		{
+			break;
+		}
+		
+		i+=1;
+		
+	}while(i<MAX);
 	
 	printf("\nFound element %d at position %d.\n",item,i+1);
 }
