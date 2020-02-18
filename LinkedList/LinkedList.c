@@ -83,13 +83,29 @@ int length()
 	return length;
 }
 
+//find a link with given key 
+struct node* find(int key)
+{
+	struct node *current = NULL; 
+	
+	for(current=head;current!=NULL;current=current->next)
+	{		
+		if(current->key == key)
+		{
+			break;
+		}
+	}
+	
+	return current;
+}
+
 void main()
 {
 	insertFirst(1,100);
-	insertFirst(1,200);
-	insertFirst(1,300);
-	insertFirst(1,400);
-	insertFirst(1,500);
+	insertFirst(2,200);
+	insertFirst(3,300);
+	insertFirst(4,400);
+	insertFirst(5,500);
 	
 	printList();
 	
@@ -99,5 +115,10 @@ void main()
 	printList();
 	*/
 	
-	printf("\nCurrent length of LinkedList: %d\n",length());
+	printf("\nCurrent length of LinkedList: %d",length());
+	
+	int keyToFind = 1;
+	struct node *nodeToFind = find(keyToFind);	
+	printf("\nInput Key: %d, Node Details: [(%d,%d)]",keyToFind,nodeToFind->key,nodeToFind->data);
+	
 }
