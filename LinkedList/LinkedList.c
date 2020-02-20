@@ -99,22 +99,6 @@ struct node* find(int key)
 	return current;
 }
 
-//delete a link with given key
-struct node* delete(int key)
-{
-	struct node *current = NULL; 
-	
-	for(current=head;current!=NULL;current=current->next)
-	{
-		if(current->key == key)
-		{
-			return current;
-		}
-	}
-	
-	return current;
-}
-
 void main()
 {
 	insertFirst(1,100);
@@ -124,7 +108,7 @@ void main()
 	insertFirst(5,500);
 	
 	printList();
-	/*
+	
 	deleteFirst();
 	
 	printList();	
@@ -133,9 +117,5 @@ void main()
 	
 	int keyToFind = 4;
 	struct node *nodeToFind = find(keyToFind);	
-	printf("\nInput Key: %d, Node Details: [(%d,%d)]",keyToFind,nodeToFind->key,nodeToFind->data);
-	*/
-	int keyToDelete = 5;
-	struct node *deletedNode = delete(keyToDelete);
-	printf("\nDeleted Node:[(%d,%d)]\n",deletedNode->key,deletedNode->data);	
+	printf("\nInput Key: %d, Node Details: [(%d,%d)]",keyToFind,nodeToFind->key,nodeToFind->data);	
 }
