@@ -102,21 +102,75 @@ struct node* find(int key)
 //delete a link with given key
 struct node* delete(int key)
 {
-	struct node *current = NULL; 
+	struct node *current = head; 
+	struct node *previous = NULL;
 	
-	for(current=head;current!=NULL;current=current->next)
+	//if list is empty 
+	if(head == NULL)
+	{
+		return NULL;
+	}
+	
+	//for loop implementation 	
+	/*
+	for(1=1;current!=NULL;current=current->next)
 	{
 		if(current->key == key)
 		{
-			return current;
+			break;
 		}
+		else
+		{
+			previous = current;
+		}
+	}
+	
+	if(previous == NULL)
+	{
+		head = current->next;
+	}
+	
+	if(previous != NULL)
+	{
+		previous->next = current->next;
+	}
+	*/
+	
+	//while loop implementation	
+	while(current->key != key)
+	{
+		//if it is last node 
+		if(current->next == NULL)
+		{
+			return NULL;
+		}
+		else	
+		{
+			//store reference to current link 
+			previous = current;
+			//move to next link 
+			current = current-> next;
+		}
+	}
+	
+	//found a match, update the link 
+	if(current == head)
+	{
+		//change first to point to next link 
+		head = head->next;	
+	}
+	else
+	{
+		//bypass the current link 
+		previous->next = current->next;		
 	}
 	
 	return current;
 }
 
 void main()
-{
+{	
+	printf("Original elements of LinkedList:");
 	insertFirst(1,100);
 	insertFirst(2,200);
 	insertFirst(3,300);
@@ -135,7 +189,10 @@ void main()
 	struct node *nodeToFind = find(keyToFind);	
 	printf("\nInput Key: %d, Node Details: [(%d,%d)]",keyToFind,nodeToFind->key,nodeToFind->data);
 	*/
-	int keyToDelete = 5;
+	
+	int keyToDelete = 1;
 	struct node *deletedNode = delete(keyToDelete);
-	printf("\nDeleted Node:[(%d,%d)]\n",deletedNode->key,deletedNode->data);	
+	printf("\nElements of LinkedList after deleting node with key: %d",keyToDelete);
+	printList();
+	//printf("\nDeleted Node:[(%d,%d)]\n",deletedNode->key,deletedNode->data);		
 }
