@@ -19,49 +19,105 @@ void printArray(int arr[])
 	printf("]");
 }
 
-void sortAscending(int myArray[])
+void sortAscendingAdjacentSwapping(int arr[])
 {
-	int i=0,j=0,temp=0;
+	int i=0,j=0,temp=0, parentIteration=0,childIteration=0;
 	
 	printf("\nElements of array before sort: ");
-	printArray(myArray);
+	printArray(arr);
+	printf("\n");
 
 	for(i=0;i<MAX;i++)
 	{
+		parentIteration++;
+		printf("\nPARENT ITERATION %d START.",parentIteration);
+		
 		for(j=0;j<MAX-1;j++)
 		{
-			if(myArray[j]>myArray[j+1])
+			if(arr[j]>arr[j+1])
 			{
-				temp = myArray[j+1];
-				myArray[j+1] = myArray[j];
-				myArray[j] = temp;
-			}			
-		}		
+				temp = arr[j+1];
+				arr[j+1] = arr[j];
+				arr[j] = temp;
+			}
+			
+			childIteration++;
+			printf("\n  Child Iteration %d: ",childIteration);
+			printArray(arr);
+		}	
+		
+		printf("\nPARENT ITERATION %d END.", parentIteration);
+		printf("\n");
+		
 	}
 	
-	printf("\nElements of array after sort: ");
-	printArray(myArray);
+	printf("\n\nElements of array after sort: ");
+	printArray(arr);
+	printf("\n");
+}
+
+void sortAscending(int arr[])
+{
+	int i=0,j=0,temp=0, parentIteration=0,childIteration=0;
+	
+	printf("\nElements of array before sort: ");
+	printArray(arr);
+	printf("\n");
+
+	for(i=0;i<MAX;i++)
+	{
+		parentIteration++;
+		printf("\nPARENT ITERATION %d START.",parentIteration);
+		
+		for(j=0;j<MAX-1;j++)
+		{
+			if(arr[j]>arr[j+1])
+			{
+				temp = arr[j+1];
+				arr[j+1] = arr[j];
+				arr[j] = temp;
+			}
+			
+			childIteration++;
+			printf("\n  Child Iteration %d: ",childIteration);
+			printArray(arr);
+		}	
+		
+		printf("\nPARENT ITERATION %d END.", parentIteration);
+		printf("\n");
+		
+	}
+	
+	printf("\n\nElements of array after sort: ");
+	printArray(arr);
+	printf("\n");
 }
 
 void main()
 {
 	printf("Data pattern 1:");
-	int myArray[] = {5,4,3,2,1};
-	sortAscending(myArray);	
+	int myArray1[] = {5,4,3,2,1};
+	sortAscendingAdjacentSwapping(myArray1);		
 	
-	/*
-	printf("Data pattern 2:");
-	myArray = new int[]{4,3,2,1,5};
-	sortAscending(myArray);	
+	printf("\n\nData pattern 2:");
+	int myArray2[] = {4,3,2,1,5};
+	sortAscendingAdjacentSwapping(myArray2);		
 	
-	printf("Data pattern 3:");
-	myArray = new int[]{4,3,2,1,5};
-	sortAscending(myArray);
+	printf("\n\nData pattern 3:");
+	int myArray3[] = {4,3,2,1,5};
+	sortAscending(myArray3);
 	
-	printf("Data pattern 3:");
-	myArray = new int[]{4,3,3,1,3};
-	sortAscending(myArray);
-	*/
+	printf("\n\nData pattern 4:");
+	int myArray4[] = {4,3,3,1,3};
+	sortAscending(myArray4);
+
+	printf("\n\nData pattern 5:");
+	int myArray5[] = {5,1,4,2,3};
+	sortAscending(myArray5);
+	
+	printf("\n\nData pattern 6:");
+	int myArray6[] = {1,2,3,4,5};
+	sortAscending(myArray6);
 }
 
 
