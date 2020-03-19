@@ -91,6 +91,42 @@ void sortAscending(int arr[],int arrLength)
 	printf("\n");
 }
 
+void sortDescending(int arr[],int arrLength)
+{
+	int i=0,j=0,temp=0, parentIteration=0,childIteration=0;
+	
+	printf("\nElements of array before sort: ");
+	printArray(arr,arrLength);
+	printf("\n");
+
+	for(i=0;i<arrLength;i++)
+	{
+		parentIteration++;
+		printf("\nPARENT ITERATION %d START.",parentIteration);
+		
+		for(j=i+1;j<arrLength;j++)
+		{
+			if(arr[i]<arr[j])
+			{
+				temp = arr[j];
+				arr[j] = arr[i];
+				arr[i] = temp;
+			}
+			
+			childIteration++;
+			printf("\n  Child Iteration %d: ",childIteration);
+			printArray(arr,arrLength);
+		}	
+		
+		printf("\nPARENT ITERATION %d END.", parentIteration);
+		printf("\n");		
+	}
+	
+	printf("\n\nElements of array after sort: ");
+	printArray(arr,arrLength);
+	printf("\n");
+}
+
 void main()
 {
 	int myArray1[] = {5,4,3,2,1};
@@ -157,6 +193,22 @@ void main()
 	
 	printf("\n\nData pattern 10:");	
 	sortAscending(myArray10,200);*/	
+	
+	//Method Name: sortDescending 
+	printf("Data pattern 1:");	
+	sortDescending(myArray1,5);		
+	
+	printf("\n\nData pattern 2:");	
+	sortDescending(myArray2,5);		
+	
+	printf("\n\nData pattern 3:");	
+	sortDescending(myArray3,5);
+	
+	printf("\n\nData pattern 4:");	
+	sortDescending(myArray4,5);
+
+	printf("\n\nData pattern 5:");	
+	sortDescending(myArray5,5);
 }
 
 
